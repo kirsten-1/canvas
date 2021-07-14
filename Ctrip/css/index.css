@@ -1,0 +1,58 @@
+body{
+    background-color: #fafafc;
+}
+header{
+    height: 45px;
+    max-width: 540px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 8px 50px 8px 12px;
+    /* position: fixed; */
+    /* top: 0; */
+    /* left: 50%;
+    transform: translateX(-50%); */
+    /* z-index: 10; */
+    background-color: #8ea3b5;
+}
+header .search{
+    line-height: 28px;
+    padding-left: 40px;
+    height: 100%;
+    border-radius: 15px;
+    background: url(../images/home.png) no-repeat 15px 7px;
+    background-size: 21px auto;
+    background-color: #fafafc;
+}
+header .mine{
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+}
+header .mine::before{ 
+    /* ::before是行内元素 */
+    display: block;
+    content: '';
+    width: 50px;
+    height: 26px;
+    background-color: aqua;
+    background: url(../images/home.png) no-repeat 14px -32px;
+    background-size: 21px auto;
+}
+/* .banner{
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto;
+}
+.banner ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.banner ul li img{
+    width: 100%;
+} */
