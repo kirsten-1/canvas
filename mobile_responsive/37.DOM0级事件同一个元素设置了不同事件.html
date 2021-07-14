@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.getElementsByClassName("box")[0];
+        box.onmouseenter = function(){
+            console.log(456)
+        }
+        box.onmouseover = function(){
+            console.log(123)
+        }
+    </script>
+</body>
+</html>

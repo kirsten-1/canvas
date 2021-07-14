@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 100px;
+            height: 100px;
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer"></div>
+    <script>
+        var box = document.getElementById("outer");
+        box.addEventListener("click",function(){
+            console.log("1");
+        },false);
+        document.body.addEventListener("click",function () {
+            console.log("2");
+        },true);
+        box.addEventListener("click",function(){
+            console.log("3");
+        },true);
+        document.addEventListener("click",function(){
+            console.log("4");
+        },false)
+        document.addEventListener("click",function(){
+            console.log("5");
+        },true)
+        document.documentElement,addEventListener("click",function(){
+            console.log("6");
+        },true);
+        document.documentElement,addEventListener("click",function(){
+            console.log("7");
+        },false);
+        document.body.addEventListener("click",function () {
+            console.log("8");
+        },false);
+        window.addEventListener("click",function(){
+            console.log("9");
+        },true)
+        window.addEventListener("click",function(){
+            console.log("10");
+        },false)
+    </script>
+</body>
+</html>

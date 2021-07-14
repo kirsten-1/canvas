@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            font-size: 20px;
+        }
+        div{
+            width: 50%;
+            height: 10rem;
+            float: left;
+        }
+        .left{
+            background-color: pink;
+        }
+        .right{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="left"></div>
+    <div class="right"></div>
+</body>
+<script>
+    window.onresize = function(){
+        //获取窗口的宽度
+        var windowWidth = document.documentElement.clientWidth;
+        //计算html字号:（500/20）是 以窗口状态为500px,当前字号为20px的基准设置的根比例
+        var fz = windowWidth/(500/20);
+        //给html设置动态字号：
+        document.documentElement.style.fontSize = fz + 'px';
+    }
+</script>
+</html>

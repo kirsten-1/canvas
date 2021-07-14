@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            display: flex;
+            height: 320px;
+            background-color: pink;
+            flex-wrap: wrap-reverse;
+        }
+        .item{
+            width: 300px;
+            height: 100px;
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+        }
+        .item1{
+            background-color: orange;
+        }
+        .item2{
+            background-color: skyblue;
+        }
+        .item3{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item1">4</div>
+        <div class="item item2">5</div>
+        <div class="item item3">6</div>
+    </div>
+</body>
+</html>
