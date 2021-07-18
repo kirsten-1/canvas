@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="links">
+        <li id="go">go to https://github.com/kirsten-1/</li>
+        <li id="do">do click</li>
+        <li id="sayHi">say hi</li>
+    </ul>
+    <script>
+        var list = document.getElementById("links");
+
+        var EventUtil = {
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = handler;
+                }
+            },
+            getEvent:function(event){
+                return event ? event : window.event;
+            },
+            getTarget:function(event){
+                return event.target || event.srcElement;
+            },
+            preventDefault:function(event){
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else{
+                    event.returnValue = false;
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    event.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = null;
+                }
+            },
+            stopPropagation:function(event){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    //由于IE不支持事件捕获，因此这个方法在跨浏览器的情况之下，也只能用来阻止事件冒泡
+                    event.cancelBubble = true; 
+                }
+            }
+        }
+
+        EventUtil.addHandler(list,"click",function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+
+            switch(target.id){
+                case "go":
+                    location.href = "https://github.com/kirsten-1/";
+                    break;
+                case "do":
+                    document.title = "do click";
+                    break;
+                case "sayHi":
+                    console.log("hi");
+                    break;
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var item1 = document.getElementsByTagName("div")[0];
+        var item2 = document.getElementsByTagName("div")[1];
+        var item3 = document.getElementsByTagName("div")[2];
+        var item4 = document.getElementsByTagName("div")[3];
+        var item5 = document.getElementsByTagName("div")[4];
+
+        item1.onclick = function(){
+            this.style.backgroundColor = "skyblue";
+        }
+        item2.onclick = function(){
+            this.style.backgroundColor = "skyblue";
+        }
+        item3.onclick = function(){
+            this.style.backgroundColor = "skyblue";
+        }
+        item4.onclick = function(){
+            this.style.backgroundColor = "skyblue";
+        }
+        item5.onclick = function(){
+            this.style.backgroundColor = "skyblue";
+        }
+    </script>
+</body>
+</html>

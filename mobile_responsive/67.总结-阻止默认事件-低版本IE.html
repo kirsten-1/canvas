@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://github.com/kirsten-1/">跳转到我的GitHub</a>
+    <div></div>
+    <script>
+        var link = document.getElementsByTagName("a")[0];
+        var div = document.getElementsByTagName("div")[0];
+        link.onclick = function(){
+            console.log("不跳转超链接成功");
+            window.event.returnValue = false;
+        }
+        div.oncontextmenu = function(){
+            this.style.backgroundColor = "plum";
+            window.event.returnValue = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://github.com/kirsten-1/" id="githubLink">Go to my github</a>
+    <script>
+        var EventUtil = {
+            addHandler:function(element,type,handler){
+                if(element.addEventListener){
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent){
+                    element.attachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = handler;
+                }
+            },
+            getEvent:function(event){
+                return event ? event : window.event;
+            },
+            getTarget:function(event){
+                return event.target || event.srcElement;
+            },
+            preventDefault:function(event){
+                if(event.preventDefault){
+                    event.preventDefault();
+                }else{
+                    event.returnValue = false;
+                }
+            },
+            removeHandler:function(element,type,handler){
+                if(element.removeEventListener){
+                    event.removeEventListener(type,handler,false);
+                }else if(element.detachEvent){
+                    element.detachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = null;
+                }
+            },
+            stopPropagation:function(event){
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    //由于IE不支持事件捕获，因此这个方法在跨浏览器的情况之下，也只能用来阻止事件冒泡
+                    event.cancelBubble = true; 
+                }
+            }
+        }
+        
+        var link = document.getElementById("githubLink");
+        //使用时，必须假设有一个事件对象传入到事件处理程序中，而且要将该变量传入getEvent方法
+        link.onclick = function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            EventUtil.preventDefault(event);
+            EventUtil.stopPropagation(event);
+        }
+        document.body.onclick = function(event){
+            console.log("Body clicked");
+        }
+
+    </script>
+</body>
+</html>

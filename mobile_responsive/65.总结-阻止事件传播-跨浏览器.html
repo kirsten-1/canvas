@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        #outer #inner{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        父元素
+        <div id="inner">子元素</div>
+    </div>
+    <script>
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+        inner.onclick = function (event) {
+            console.log("子元素");
+            var event = event || window.event;
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        }
+        outer.onclick = function () {
+            console.log("父元素");
+        }
+    </script>
+</body>
+</html>
