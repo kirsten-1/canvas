@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        var handler = function(event){
+            switch(event.type){
+                case "click":
+                    event.target.innerHTML = "Clicked!";
+                    break;
+                case "mouseover":
+                    event.target.style.backgroundColor = "skyblue";
+                    break;
+                case "mouseout":
+                    event.target.style.backgroundColor = "blueviolet";
+                    break;
+            }
+        }
+        box.onclick = handler;
+        box.onmouseover = handler;
+        box.onmouseout = handler;
+    </script>
+</body>
+</html>
