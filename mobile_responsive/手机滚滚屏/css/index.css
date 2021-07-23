@@ -1,0 +1,253 @@
+/* 公共小角标 */
+.next{
+    position: absolute;
+    width: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1%;
+}
+.next.nextAni{
+    animation: next 1s linear 0s infinite alternate;
+}
+/* page1 */
+.page1{
+    background: url(../images/page1_bg.jpg) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.page1 .num{
+    width: 100%;
+    position: absolute;
+    top:10%
+}
+.page1 .num img:nth-child(1){
+    position: absolute;
+    left: 5%;
+    top:0;
+}
+.page1 .num img:nth-child(2){
+    position: absolute;
+    left: 25%;
+    top:0;
+}
+.page1 .num img:nth-child(3){
+    position: absolute;
+    left: 45%;
+    top:0;
+}
+.page1 .num img:nth-child(4){
+    position: absolute;
+    left: 65%;
+    top:0;
+}
+.page1 .num.donghua1{
+    animation: page1Donghua1 1s linear 0s;
+}
+.page1 .num.donghua1 img{
+    animation: page1Donghua2 1s infinite alternate;
+}
+.page1 .num.donghua1 img:nth-child(2){
+    animation-duration: 2.5s;
+}
+.page1 .num.donghua1 img:nth-child(3){
+    animation-duration: 2s;
+}
+.page1 .num.donghua1 img:nth-child(4){
+    animation-duration: 3s;
+}
+.page1 .pic1{
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+}
+.page1 .pic1.donghua2{
+    animation: page1Donghua3 3s cubic-bezier(0.075, 0.82, 0.165, 1) 1s forwards;
+}
+/* page2 */
+.page2{
+    background: url(../images/page2_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.page2 .pic1{
+    position: absolute;
+    top:-20%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.35) rotate(-50deg) ;
+
+}
+.page2 .pic1.page2Donghua1{
+    animation: page2donghua1 1s linear 0s;
+}
+.page2 .content{
+    position: absolute;
+    width: 80%;
+    height: 20%;
+    background-color: rgba(255, 255, 255, 0.4);
+    left: 50%;
+    bottom: 7%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 4px;
+}
+.page2 .content.page2Donghua2{
+    animation: page2donghua2 1s linear 0s;
+}
+.page2 .content p{
+    font-size: 20px;
+    text-align: center;
+}
+/* page3 */
+.page3{
+    background: url(../images/page3_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.page3 .work,.page3 .cond{
+    width: 70%;
+    padding: 3%;
+    border: 5px solid #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.page3 .work{
+    top: 15%;
+}
+.page3 .cond{
+    bottom: 15%;
+}
+.page3 p{
+    color: #fff;
+    font-size: 18px;
+    line-height: 30px;
+}
+.page3 .work::before,.page3 .cond::before{
+    content: '';
+    width: 80px;
+    height: 120px;
+    background:url(../images/page3_pic1.png);
+    background-size: 100%;
+    position: absolute;
+    top: -27%;
+}
+.page3 .work::before{
+    left: -9%;
+}
+.page3 .cond::before{
+    background: url(../images/page3_pic2.png);
+    background-size: 100% 100%;
+    right: -22%;
+    top: -16%;
+}
+.page3 .work.page3Donghua1::before{
+    animation: page3donghua1 0.5s linear 0s;
+}
+.page3 .cond.page3Donghua2::before{
+    animation: page3donghua2 0.5s linear 0s;
+}
+/* page4 */
+.page4{
+    background: url(../images/page4_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.page4 .address{
+    position: absolute;
+    width: 70%;
+    padding: 3%;
+    border: 5px solid #fff;
+    left: 50%;
+    margin-left: -40%;
+    top: 15%;
+}
+.page4 .address p{
+    color: #fff;
+    font-size: 18px;
+    line-height: 30px;
+}
+.page4 .QRcode{
+    position: absolute;
+    left: 50%;
+    margin-left: -40%;
+    bottom: 10%;
+    width: 90%;
+    color: #fff;
+    font-size: 12px;
+}
+.page4 .QRcode img{
+    width: 100px;
+    vertical-align: middle;
+}
+/* 声明动画 */
+@keyframes page1Donghua1{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+@keyframes page1Donghua2{
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(20%);
+    }
+}
+@keyframes page1Donghua3{
+    0%{
+        transform: translate(-50%,-50%) translateY(-500px);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-50%,-50%) translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes page2donghua1{
+    0%{
+        transform:translateX(-50%) rotate(-50deg) scale(0);
+    }
+    100%{
+        transform: translateX(-50%) rotate(-50deg) scale(0.35);
+    }
+}
+@keyframes page2donghua2{
+    0%{
+        transform: translateY(500px) translateX(-50%);
+    }
+    100%{
+        transform: translateY(0) translateX(-50%);
+    }
+}
+@keyframes next{
+    0%{
+        transform: translateX(-50%) translateY(40%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(-40%);
+    }
+}
+@keyframes page3donghua1{
+    0%{
+        transform: translateY(-500px);
+    }
+    100%{
+        transform: none;
+    }
+}
+@keyframes page3donghua2{
+    0%{
+        transform: translateY(500px);
+    }
+    100%{
+        transform: none;
+    }
+}

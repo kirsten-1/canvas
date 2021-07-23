@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul,ol li{
+            list-style: none;
+        }
+        #caroucel{
+            overflow: hidden;
+            position: relative;
+        }
+        #caroucel #unit{
+            position: relative;
+            left: 0;
+            display: flex;
+        }
+        #caroucel #unit li{
+            float: left;
+            max-width: 540px;
+        }
+        #caroucel #unit li img{
+            width: 100%;
+            vertical-align: middle;
+        }
+        .circles{
+            position: absolute;
+            width: 110px;
+            height: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15px;
+        }
+        .circles li{
+            float: left;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: rgba(164, 233, 54, 0.5);
+        }
+        .circles li.cur{
+            width: 20px;
+            background-color: rgba(192, 129, 129, 0.9);
+            border-radius: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="caroucel">
+        <ul id="unit">
+            <li> <img src="./images/banner1.png" alt=""></li>
+            <li> <img src="./images/banner2.png" alt=""></li>
+            <li> <img src="./images/banner3.png" alt=""></li>
+            <li> <img src="./images/banner4.png" alt=""></li>
+        </ul>
+        <ol class="circles">
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script src="./js/zepto.js"></script>
+    <script src="./js/zepto-touch.js"></script>
+    <script src="./js/zepto-animate.js"></script>
+    <script>
+        var $unit = $("#unit");
+        var index = 0;
+        var length = $("#unit li").length;
+        $("#unit li:nth-child(1)").clone().appendTo("#unit");
+        $unit.css('width',$("#unit li").length*100+"%");
+        var liWidth = $("#unit li").width();
+        var flag = false;
+        var $circles = $('.circles');
+        $unit.on('swipeLeft',function(){
+            if(flag)return;
+            flag = true;
+            index++;
+            $unit.animate({
+                'left':-index*liWidth
+            },500,function () {
+                if(index>length-1){
+                    $unit.css({'left':0});
+                    index = 0;
+                }
+            })
+            flag = false;
+            $('.circles li').removeClass("cur");
+            var _index = index>(length-1)?0:index;
+            $('.circles li:nth-child('+(_index+1)+')').addClass('cur');
+        })
+        $unit.on('swipeRight',function(){
+            if(flag)return;
+            flag = true;
+            index--;
+            if(index<0){
+                index = length-1;
+                $unit.css({'left':-length*liWidth})
+            }
+            $unit.animate({
+                'left':-index*liWidth
+            },500,function () {
+                flag = false;
+            })
+            flag = false;
+            $('.circles li').removeClass("cur");
+            $('.circles li:nth-child('+(index+1)+')').addClass('cur');
+        })
+        //单击小圆点，显式图片
+        $('.circles li').on('tap',function(){
+            if(flag)return;
+            flag = true;
+            index = $(this).index();
+            $('.circles li').removeClass("cur");
+            $('.circles li:nth-child('+(index+1)+')').addClass('cur');
+            $unit.animate({
+                'left':-index*liWidth
+            },500,function(){
+                flag = false;
+            })
+        })
+    </script>
+</body>
+</html>

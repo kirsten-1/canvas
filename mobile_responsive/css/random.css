@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    width: 700px;
+    margin: 0 auto;
+    height: 500px;
+}
+.main .sidebar{
+    width: 30%;
+    float: left;
+    height: 100%;
+    background-color: aquamarine;
+}
+.main .sidebar ul li{
+    height: 60px;
+    list-style: none;
+    background-color: rgb(102, 102, 204);
+    margin: 5px;
+}
+.main .content{
+    float: left;
+    width: 70%;
+    height: 100%;
+    background-color: blanchedalmond;
+}
+
+
+
+@media only screen and (max-width:800px){
+    .sidebar{
+        display: none;
+    }
+}
+
+@media (min-width:320px) and (orientation:landscape){
+    .sidebar{
+        display: none;
+    }
+}
+
+@media (min-width:320px) ,all and (orientation:landscape){
+    .sidebar{
+        display: none;
+    }
+}
+
+
+
+
+/* 规则1 */
+@media (min-width:1024px){
+    html{
+        background: blue;
+    }
+}
+/* 规则2 */
+@media (min-width:800px){
+    html{
+        background: green;
+    }
+}
+/* 规则3 */
+@media (min-width:320px){
+    html{
+        background:red;
+    }
+}
+
+
+@media (max-width:320px){
+
+}
+@media (min-width:321px) and (max-width:1024px){
+
+}
+@media (min-width:1024px){
+
+}
+
+/* 当设备宽度还不足320px的移动设备情况 */
+html{
+
+}
+/* 宽度为320px至1024px时 */
+@media (min-width:320px){
+
+}
+/* 宽度大于1024px至无穷时 */
+@media (min-width){
+
+}
+
+
+
+/* 不设定宽度的情况 */
+html{
+
+}
+/* 当页面宽度不超过1024px时 */
+@media (max-width:1024px){
+
+}
+/* 当页面宽度不超过320px时 */
+
+
+@media (max-device-width:320px){
+    
+}
+
+
+/* 默认情况下，块级元素即垂直排列。所以无需指定样式 */
+/* 移动设备上再对元素样式进行修改 */
+@media (min-width:960px){
+    .article{
+        float: left;
+        width: 60%;
+    }
+}
+
+
+/* 桌面情况下，.article和.sidebar内容向左右排列 */
+.article{
+    float: left;
+    width: 60%;
+}
+/* 移动设备上，清除浮动样式，恢复宽度，恢复块级元素默认垂直排列 */
+@media (max-width:960px){
+    .article{
+        float: none;
+        width: 100%;
+    }
+}

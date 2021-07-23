@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 1200px;
+    margin: 0 auto;
+}
+.header .logo{
+    float: left;
+    width: 15%;
+    height: 50px;
+    background-color: greenyellow;
+}
+.header .nav{
+    width: 800px;
+    float: right;
+}
+.header .nav ul li{
+    float: left;
+    list-style: none;
+    line-height: 50px;
+    margin-right: 30px;
+}
+.content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.content ul li{
+    width: 20%;
+    height: 120px;
+    margin: 10px 0;
+    border-right: 10px solid #fff;
+    background-color: #ccc;
+    float: left;
+    list-style: none;
+    box-sizing: border-box;
+}

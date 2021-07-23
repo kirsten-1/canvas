@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/1.css" id="link">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <div class="nav">
+            <ul>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+                <li><a href="">网页栏目</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        //获取css样式的link标签
+        var link = document.getElementById("link");
+        //根据浏览器的宽度适配1.css还是2.css
+        window.onresize = changeCSS;
+        changeCSS();//刚加载的时候，需要判断
+        function changeCSS(){
+            //获取浏览器宽度
+            var windowWidth = document.documentElement.clientWidth;
+            if(windowWidth<1200){
+                link.href = './css/2.css';
+            }else{
+                link.href = './css/1.css';
+            }
+        }
+    </script>
+</body>
+</html>

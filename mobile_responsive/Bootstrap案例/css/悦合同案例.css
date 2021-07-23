@@ -1,0 +1,279 @@
+body{
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
+    background-color: #f5f5f5;
+}
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default {
+    background-color: #fff;
+}
+.nav-top-cont {
+    padding-left: 80px;
+}
+.navbar-header .logo-box{
+    display: flex;
+    align-items: center;
+}
+.navbar-header .logo{
+    margin-right: 15px;
+}
+.navbar-header .logo h1{
+    text-indent: -20000px;
+    display: inline-block;
+    width: 195px;
+    height: 80px;
+    margin-top: 18px;
+    background: url(../images/yue-sprit001.png) no-repeat 0 0;
+    vertical-align: middle;
+}
+.navbar-header .nav-cont{
+    font-size: 2.2em;
+    font-weight: 500;
+    color: #35c1ec;
+    letter-spacing: .3em;
+}
+.navbar-right .nav-list{
+    display: flex;
+    height: 108px;
+    align-items: center;
+    list-style: none;
+}
+.navbar-right .nav-list li{
+    padding: 3px 8px;
+    margin: 0 2px;
+    color: #555;
+}
+.navbar-right .nav-list li a{
+    text-decoration: none;
+    color: #555;
+}
+.navbar-right .nav-list li:hover{
+    background-color: #35c1ec;
+    border-radius: 4px;
+}
+.navbar-right .nav-list li:hover a{
+    color: #fff;
+}
+.search-box{
+    height: 150px;
+    background: url(../images/s_bg.jpg);
+    overflow: hidden;
+}
+.search-box .input-group{
+    margin-top: 45px;
+}
+.search-box .input-group .form-control{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 53px;
+}
+.search-box .input-group .input-group-btn .btn{
+    width: 112px;
+    height: 53px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: #fdd26d url(../images/yue-sprit001.png) 50% -125px no-repeat;
+}
+.smart{
+    text-align: center;
+    padding: 22px 0;
+}
+.smart h2{
+    font-size: 20px;
+    margin: 42px 0;
+}
+.smart ul li {
+    list-style: none;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.smart ul li .item {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.smart ul li .item .tit {
+    line-height: 42px;
+    font-size: 18px;
+    color: #fff;
+    height: 42px;
+    background: #e8b875 url(../images/yue-sprit004.png) no-repeat 35px -47px;
+}
+
+.smart ul li .content {
+    padding: 10px;
+    text-align: left;
+}
+
+.smart ul li .content p {
+    border-bottom: 1px dashed #eaeaea;
+    line-height: 40px;
+    margin-bottom: 0;
+}
+
+.smart ul li .content p:last-child {
+    border-bottom: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.service{
+    text-align: center;
+    padding: 20px ;
+    background-color: #fff;
+}
+.service h2{
+    font-size: 20px;
+    margin: 42px 0;
+}
+.service .box{
+    height: 295px;
+    padding: 0 10px;
+}
+.service .box .inner{
+    height: 100%;
+    border: 1px solid #ddd;
+}
+.service .box .inner .top{
+    background-color: #8ea8f8;
+    overflow: hidden;
+}
+.service .box .inner .top p{
+    color: #fff;
+}
+.service .box .inner .top span{
+    width: 80px;
+    height: 80px;
+    display: block;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 15px auto;
+}
+.service .box .inner .top span::before{
+    font-size: 30px;
+    line-height: 80px;
+    color: #fff;
+}
+.service .box .inner .bottom h3{
+    font-size: 20px;
+}
+.service .box .inner .bottom p{
+    color: #666;
+}
+.service .box .inner .bottom p:nth-child(2) span{
+    text-decoration: line-through;
+}
+.service .box .inner .bottom p:nth-child(3) span{
+    color: #ed711f;
+}
+.service .box:nth-child(3) .top{
+    background-color: #97cb26;
+}
+.service .box:nth-child(4) .top{
+    background-color: #fad716;
+}
+.service .box:nth-child(4) .inner .bottom p:nth-child(2) span{
+    color: #ed711f;
+    text-decoration: none;
+}
+.des{
+    text-align: center;
+    padding: 20px;
+}
+.des .info{
+    border-right: 1px solid #ddd ;
+}
+.des .info h3{
+    font-size: 50px;
+    font-weight: 400;
+    display: none;
+}
+.des .info p{
+    font-size: 20px;
+    display: none;
+}
+.des .info span{
+    margin: 0 auto;
+    display: block;
+    background: url(../images/yue-sprit0054.png) no-repeat;
+    height: 78px;
+    width: 125px;
+}
+.des .info:nth-child(2n) span{
+    background-position: -130px 0;
+}
+.des .info:last-child{
+    border-right: none;
+}
+.act{
+    padding: 20px;
+}
+.act li{
+    list-style: none;
+    height: 205px;
+    padding: 0 10px;
+}
+.act li div{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+@media screen and (max-width:1200px){
+    .logo h1{
+        width: 152px;
+        height: 60px;
+        background: url(../images/yue-sprit001.png) no-repeat -202px 0px;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+    .navbar-header .nav-cont{
+        font-size: 1.8em;
+        font-weight: 500;
+        color: #35c1ec;
+        letter-spacing: .3em;
+    }
+    .navbar-right .nav-list{
+        height: 65px;
+    }
+    .des .info{
+        border-right: none;
+    }
+}
+@media screen and (max-width:768px){
+    .logo h1{
+        width: 122px;
+        height: 50px;
+        background: url(../images/yht-logo-195X80.png) no-repeat;
+        background-size: 100% auto;
+        margin-top: -2px;
+        margin-left: 20px;
+    }
+    .navbar-header .nav-cont{
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #35c1ec;
+        letter-spacing: .3em;
+    }
+    .navbar-right .nav-list{
+        height: 35px;
+    }
+    .search-box{
+        padding: 0 15px;
+        height: 135px;
+    }
+    .smart h2 {
+        margin: 22px 0;
+    }
+    .service h2 {
+        margin: 22px 0;
+    }
+    .des .info{
+        border-right: none;
+    }
+    .des .info span{
+        transform: scale(0.6);
+    }
+}

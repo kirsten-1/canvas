@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            position: absolute;
+            left: 50px;
+            top: 20px;
+        }
+        .cur{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>zepto
+        <!-- <p>DOM0</p>
+        <p>DOM0</p>
+        <p>DOM0</p> -->
+    </div>
+    <!-- <span>hello</span> -->
+    <!-- <p id="box">DOM1</p>
+    <p>DOM2</p> -->
+    <script src="./js/zepto.js"></script>
+    <script src="./js/zepto-animate.js"></script>
+    <!-- <script src="./js/jQuery.min.js"></script> -->
+    <script>
+        // $("div").css({
+        //     height:200,
+        //     background:'blue'
+        // })
+        // $("div").html("你好");
+        // $("div").addClass('cur')
+        // $("div").attr('a','1')
+        // $("div").children("p").css('background','purple');
+        // console.log($("div:nth-child(1)").siblings().css("color",'pink'))
+        // $("div").append("span").html("hi")
+        // $("span").appendTo("div")
+        $("div").animate({
+            'left':'300px',
+            'top':'500px',
+            'background':"purple",
+            'box-shadow':"50px 40px 80px plum",
+            'transform':'rotateX(60deg) rotateY(30deg) translateZ(200px)'
+        },5000,'cubic-bezier(0,0,1,0.08)')
+    </script>
+</body>
+</html>
