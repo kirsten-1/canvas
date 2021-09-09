@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo");
+            var ctx = canvas.getContext("2d");
+            //创建图像对象：
+            var img = new Image();
+            //绘制：
+            img.onload = function(){
+                ctx.drawImage(img,0,0);
+                ctx.beginPath();
+                ctx.moveTo(30,96);
+                ctx.lineTo(70,66);
+                ctx.lineTo(103,76);
+                ctx.lineTo(170,15);
+                ctx.stroke();
+            }
+            img.src = "https://mdn.mozillademos.org/files/5395/backdrop.png";
+        }
+    </script>
+</body>
+</html>

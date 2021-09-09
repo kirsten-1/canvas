@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid #000;
+            width: 250px;
+            height: 60px;
+            font-size: 40px;
+            line-height: 60px;
+            text-align: center;
+            position: relative;
+            user-select: none;/*使文字无法选中 */
+        }
+        canvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        特等奖
+        <canvas id="foo" width="250" height="60"></canvas>
+    </div>
+    
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        
+        //画一个矩形；
+        ctx.fillStyle = "#333";
+        ctx.fillRect(0,0,250,60);
+        //设置新画上的元素，就是用这个新元素去擦出原先的元素：
+        ctx.globalCompositeOperation='destination-out';
+        //设置事件（鼠标按下：）
+        canvas.onmousedown = function(){
+            //鼠标拖动：
+            canvas.onmousemove = function(event){
+                //画一个圆：
+                ctx.beginPath();
+                ctx.arc(event.offsetX,event.offsetY,10,0,Math.PI * 2,true);
+                ctx.fill();
+            }
+        }
+        
+    </script>
+</body>
+</html>

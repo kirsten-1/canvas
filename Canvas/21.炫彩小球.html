@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #000;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="foo" width="800" height="500"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext('2d');
+        //球类：
+        function Ball(x,y,r){
+            //x，y：球心横坐标；r：球的半径：
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            //设置随机颜色：
+            this.color = getRandomColor();
+            //设置行进（运动）方向：
+            this.dx = parseInt(Math.random() * 10) - 5;
+            this.dy = parseInt(Math.random() * 10) - 5;
+            //小球将自己放进维护数组中：
+            ballArr.push(this);
+        }
+        Ball.prototype.update = function(){
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r -= 1;
+            //如果小球的半径小于0，就从数组中删除
+            if(this.r <= 0){
+                this.remove();
+            }
+        }
+        //半径小于0时，删除小球：
+        Ball.prototype.remove = function(){
+            //原理逻辑：遍历数组，如果当前的小球等于数组的这一项，从数组中移除这一项：
+            for(var i = 0;i < ballArr.length;i++){
+                if(this == ballArr[i]){
+                    ballArr.splice(i,1);
+                }
+            }
+        }
+        //渲染小球：
+        Ball.prototype.render = function(){
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.r,0,Math.PI * 2,true);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+        //给canvas设置鼠标监听事件：鼠标移动创建小球：
+        canvas.addEventListener("mousemove",function(event){
+            new Ball(event.offsetX,event.offsetY,35)
+        })
+        //维护小球的数组：
+        var ballArr = [];
+        setInterval(function(){
+            //动画逻辑：清屏-更新-渲染：
+            //清屏：
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(var i = 0;i < ballArr.length;i++){
+                //小球的更新：
+                ballArr[i].update();
+                //小球的渲染：
+                if(ballArr[i]){
+                    ballArr[i].render();
+                }
+            }
+        },30)
+        //随机十六进制颜色的方法：
+        function getRandomColor(){
+            var allType = '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f';
+            var allTypeArr = allType.split(",");
+            var color = "#";
+            for(var i = 0;i < 6;i++){
+                color += allTypeArr[parseInt(Math.random() * allTypeArr.length)]
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>

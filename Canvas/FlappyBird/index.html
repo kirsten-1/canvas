@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置canvas的宽度和高度跟背景图的宽度和高度一样，防止失真 -->
+    <canvas width="288" height="512"></canvas>
+    <script src="./js/underscore.js"></script>
+    <script src="./js/Game.js"></script>
+    <script src="./js/Background.js"></script>
+    <script src="./js/Land.js"></script>
+    <script src="./js/Pipe.js"></script>
+    <script src="./js/Bird.js"></script>
+    <script src="./js/SceneManager.js"></script>
+    <script>
+        var game = new Game();
+    </script>
+</body>
+</html>

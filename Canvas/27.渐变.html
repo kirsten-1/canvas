@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        var gradient = ctx.createRadialGradient(10,10,30,140,140,30);
+        gradient.addColorStop(0, 'orangered');
+        gradient.addColorStop(1, "skyblue");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0,0,150,150);
+    </script>
+</body>
+</html>

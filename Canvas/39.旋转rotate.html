@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        function draw(){
+            //将原点平移
+            ctx.translate(75,75);
+            for(var i = 1;i < 6;i++){
+                ctx.save();
+                //设置颜色
+                ctx.fillStyle = "rgb(" + (51 * i) + "," + (255 - 51 * i) + ",255)";
+                //内层循环：画点：
+                for(var j = 0;j < i * 6;j++){
+                    ctx.rotate(Math.PI * 2/(i * 6));
+                    //开始绘制：
+                    ctx.beginPath();
+                    //画圆：
+                    ctx.arc(0,i * 12.5,5,0,Math.PI * 2,true);
+                    //填色：
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+        }
+    </script>
+</body>
+</html>

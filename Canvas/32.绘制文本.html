@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "50px serif";
+            ctx.strokeText("Hello World",10,50);
+        }
+    </script>
+</body>
+</html>

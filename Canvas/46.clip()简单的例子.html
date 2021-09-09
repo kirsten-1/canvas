@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border:1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        //画一个圆：
+        ctx.beginPath();
+        ctx.strokeStyle = "pink";
+        ctx.arc(50,50,40,0,Math.PI * 2,true);//半径40，圆心在（50，50）处
+        ctx.closePath();
+        ctx.stroke();
+        //将这个圆指定为裁剪区域：
+        // ctx.clip();
+        //画一个长方形：
+        ctx.beginPath();
+        ctx.fillStyle = "skyblue";
+        ctx.fillRect(50,50,200,70);
+        ctx.fill();
+    </script>
+</body>
+</html>

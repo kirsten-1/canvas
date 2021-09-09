@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo")
+        var ctx = canvas.getContext("2d");
+        //动画的信号量：
+        var offset = 0;
+        //动画原理：清屏--更新--渲染
+        function draw(){
+            //清屏（整个canvas画布）
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //线段与间隙交替：
+            ctx.setLineDash([4,2]);
+            //偏移量：动画更新的部分
+            ctx.lineDashOffset = -offset;
+            //画线：
+            ctx.strokeRect(10,10,100,100);
+        }
+        function march(){
+            //信号量变化：
+            offset++;
+            //信号量变化范围：
+            if(offset > 16){
+                offset = 0;
+            }
+            //绘制:
+            draw();
+            setInterval(march,200);
+        }
+        march();
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            display: block;
+            margin: 5px;
+            border: 1px solid #eee;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="foo"></canvas>
+    <script>
+        //获取canvas标签
+        var canvas = document.getElementById("foo");
+        //获取上下文：
+        var ctx = canvas.getContext("2d");
+        //画布的尺寸：
+        canvas.width = document.documentElement.clientWidth - 10;//减去30是为了使得小球显示不超过屏幕
+        canvas.height = document.documentElement.clientHeight-10;
+        function Ball(){
+            //小球圆心坐标：随机产生：
+            this.x = parseInt(Math.random() * canvas.width);
+            this.y = parseInt(Math.random() * canvas.height);
+            //小球的半径：固定：
+            this.r = 10;
+            //设置运动方向；
+            this.dx = parseInt(Math.random() * 10) - 5;
+            this.dy = parseInt(Math.random() * 10) - 5;
+            //小球的颜色：随机产生：
+            this.color = getRandomColor();
+            //将每个小球放入维护小球的数组中：
+            ballArr.push(this);
+            //自己在数组中的位置记录一下：防止小球双向连线
+            this.index = ballArr.length - 1;
+        }
+        //小球更新：
+        Ball.prototype.update = function(){
+            this.x += this.dx;
+            this.y += this.dy;
+            //当小球出屏幕时，小球反弹：
+            if(this.x < this.r || this.x > canvas.width - this.r){
+                this.dx = -this.dx;
+            }
+            if(this.y < this.r || this.y > canvas.height - this.r){
+                this.dy = -this.dy;
+            }
+        }
+        //渲染小球：
+        Ball.prototype.render = function(){
+            ctx.beginPath();
+            //设置全局的透明度：（一定要注意设置这句代码的位置，跟颜色原理一样）
+            ctx.globalAlpha = 1;
+            ctx.arc(this.x,this.y,this.r,0,Math.PI * 2,true);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+            //画线的逻辑：划线只去跟比自己大的就可以了，防止花了两根线
+            for(var i = this.index;i < ballArr.length;i++){
+                if(Math.abs(ballArr[i].x -this.x) < 150 && Math.abs(ballArr[i].y - this.y) < 150){
+                    ctx.strokeStyle='#000';
+                    ctx.beginPath();
+                    //修饰线的透明度，根据两个球之间的距离
+                    ctx.globalAlpha = 10/Math.sqrt(Math.pow(ballArr[i].x - this.x,2)+Math.pow(ballArr[i].y - this.y,2));
+                    ctx.lineWidth = 300/(Math.sqrt(Math.pow(ballArr[i].x - this.x,2)+Math.pow(ballArr[i].y - this.y,2)));
+                    ctx.moveTo(this.x,this.y);
+                    ctx.lineTo(ballArr[i].x,ballArr[i].y);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        }
+        //维护小球的数组：
+        var ballArr = [];
+        //创建20个小球：
+        for(var i = 0;i < 20;i++){
+            new Ball();
+        }
+        //定时器动画:
+        setInterval(function(){
+            //清屏：
+            ctx.clearRect(0,0,canvas.width,canvas.height)
+            for(var i = 0;i < ballArr.length;i++){
+                //更新：
+                ballArr[i].update();
+                //渲染：
+                ballArr[i].render();
+            }
+        },20)
+        //产生十六进制的颜色的方法：
+        function getRandomColor(){
+            var allType = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+            var allTypeArr = allType.split(",");
+            var color = "#";
+            for(var i = 0;i < 6;i++){
+                var random = parseInt(Math.random() * allTypeArr.length);
+                color += allTypeArr[random];
+            }
+            //返回十六进制的颜色：
+            return color;
+        }
+        
+    </script>
+</body>
+</html>

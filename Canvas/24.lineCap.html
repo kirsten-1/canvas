@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        //lineCapArr记录了lineCap属性的三个属性值，其中默认值是butt
+        var lineCapArr = ['butt','round','square'];
+        //绘制两条辅助线
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'purple';
+        ctx.beginPath();
+        ctx.moveTo(10,10);
+        ctx.lineTo(140,10);
+        ctx.moveTo(10,140);
+        ctx.lineTo(140,140);
+        ctx.stroke();
+        //画线条：
+        ctx.strokeStyle = '#000';
+        for(var i = 0;i < 3;i++){
+            ctx.lineWidth = 15;
+            ctx.lineCap = lineCapArr[i];//线的端点
+            ctx.beginPath();
+            ctx.moveTo(i*50 + 15,10);
+            ctx.lineTo(i*50 + 15,140);
+            //划线：
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

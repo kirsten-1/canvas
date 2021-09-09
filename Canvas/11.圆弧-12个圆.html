@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo" width="150" height="200"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo");
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+
+                for(var i = 0;i < 4;i++){
+                    for(var j = 0;j < 3;j++){
+                        ctx.beginPath();
+                        //x坐标值：
+                        var x = 25 + j * 50;
+                        //y坐标值:
+                        var y = 25 + i * 50;
+                        //圆弧半径：
+                        var radius = 20;
+                        //开始角度：
+                        var startAngle = 0;
+                        //结束角度:
+                        var endAngle = Math.PI + (Math.PI * j) / 2;
+                        //顺时针还是逆时针：
+                        var anticlockwise = i % 2 == 0 ? false : true;
+                        //绘制圆弧：
+                        ctx.arc(x,y,radius,startAngle,endAngle,anticlockwise);
+                        if(i > 1){
+                            ctx.fill();
+                        }else{
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo" width="150" height="150"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo");
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+                // 画背景
+                ctx.fillStyle = '#FD0';
+                ctx.fillRect(0,0,75,75);
+                ctx.fillStyle = '#6C0';
+                ctx.fillRect(75,0,75,75);
+                ctx.fillStyle = '#09F';
+                ctx.fillRect(0,75,75,75);
+                ctx.fillStyle = '#F30';
+                ctx.fillRect(75,75,75,75);
+                ctx.fillStyle = '#FFF';//这里的白色，默认是后面同心圆的颜色
+
+                // 设置透明度值
+                ctx.globalAlpha = 0.2;
+
+                // 画半透明圆
+                for (var i=0;i<7;i++){
+                    ctx.beginPath();
+                    ctx.arc(75,75,10+10*i,0,Math.PI*2,true);
+                    ctx.fill();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* display: none; */
+        }
+        img#source{
+            width: 300px;
+            height: 227px;
+        }
+        img#frame{
+            width: 132px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <canvas id="foo" width="150" height="150"></canvas>
+    <div>
+        <img src="https://mdn.mozillademos.org/files/5397/rhino.jpg" alt="" id="source">
+        <img src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" alt="" id="frame">
+    </div>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        function draw(){
+            //绘制切片：
+            ctx.drawImage(document.getElementById("source"),33,71,104,124,21,20,87,104);
+            //绘制框：
+            ctx.drawImage(document.getElementById("frame"),0,0);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="foo"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        //lineJoin三个取值：miter是默认值：
+        var lineJoinArr = ['round','bevel','miter'];
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = "#000";
+        for(var i = 0;i < lineJoinArr.length;i++){
+            ctx.lineJoin = lineJoinArr[i];
+            ctx.beginPath();
+            ctx.moveTo(10,10 + i * 40);
+            ctx.lineTo(70,50 + i * 40);
+            ctx.lineTo(130,10 + i * 40);
+            //划线：
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

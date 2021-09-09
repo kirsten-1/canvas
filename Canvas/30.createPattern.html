@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo")
+            var ctx = canvas.getContext("2d");
+            //创建一个image对象，用作图案：
+            var img = new Image();
+            img.src = "./images/1.png";
+            //需要确认 image 对象已经装载完毕，否则图案可能效果不对的
+            img.onload = function(){
+                //创建图案对象：
+                var imgPattern = ctx.createPattern(img, "repeat");
+                //赋给填充：
+                ctx.fillStyle = imgPattern;
+                //画图：
+                ctx.fillRect(0,0,200,150);
+                
+            }
+        }
+    </script>
+</body>
+</html>

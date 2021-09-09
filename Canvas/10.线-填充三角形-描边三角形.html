@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo" width="150" height="150"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.getElementById("foo");
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+                //填充三角形：
+                ctx.beginPath();
+                ctx.moveTo(25,25);
+                ctx.lineTo(105,25);//绘制了一条横着的长80的线
+                ctx.lineTo(25,105);//绘制了一条往左下方去的线
+                ctx.fill();//默认填充为黑色
+                //描边三角形：
+                ctx.beginPath();
+                ctx.moveTo(125,125);//移动到右下角
+                ctx.lineTo(125,45);//绘制了一条向上的长为80的线
+                ctx.lineTo(45,125);//绘制了一条往左下方向的线
+                // ctx.closePath();
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>

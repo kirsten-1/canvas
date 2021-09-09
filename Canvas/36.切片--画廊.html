@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: 0 -100px repeat-x url(https://mdn.mozillademos.org/files/5415/bg_gallery.png) #4F191A;
+            margin: 10px;
+        }
+        img{
+            display: none;
+        }
+        table{
+            margin: 0 auto;
+        }
+        td{
+            padding: 15px;
+        }
+    </style>
+</head>
+<body onload="draw();">
+    <table>
+        <tr>
+            <td><img src="https://mdn.mozillademos.org/files/5399/gallery_1.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5401/gallery_2.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5403/gallery_3.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5405/gallery_4.jpg" alt=""></td>
+        </tr>
+        <tr>
+            <td><img src="https://mdn.mozillademos.org/files/5407/gallery_5.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5409/gallery_6.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5411/gallery_7.jpg" alt=""></td>
+            <td><img src="https://mdn.mozillademos.org/files/5413/gallery_8.jpg" alt=""></td>
+        </tr>
+    </table>
+    <img id="frame" width="132px" height="150px" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" alt="">
+    <script>
+        function draw(){
+            //遍历所有图片：
+            for(var i = 0;i < document.images.length;i++){
+                //将非相框的图片添加至画布中：
+                if(document.images[i].getAttribute("id")!="frame"){
+                    //创建canvas元素：
+                   var canvas = document.createElement("canvas");
+                   //设置canvas标签的宽度和高度：
+                   canvas.setAttribute("width",132);
+                   canvas.setAttribute("height",150);
+                   //将canvas节点插至所有图片之前：
+                   document.images[i].parentNode.insertBefore(canvas,document.images[i]);
+                   //获取canvas2d上下文:
+                   var ctx = canvas.getContext("2d");
+                   //作图：
+                   ctx.drawImage(document.images[i],15,20);
+                   //添加边框：
+                   ctx.drawImage(document.getElementById("frame"),0,0);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

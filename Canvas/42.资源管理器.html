@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+        //游戏类：
+        function Game(){
+            //获取canvas标签
+            this.dom = document.querySelector("canvas");
+            //获取canvas上下文：
+            this.ctx = this.dom.getContext("2d")
+            //存储图片地址：
+            this.R = {
+                "gugong":"./images/0.jpg",
+                "nichao":"./images/1.jpg",
+                "yiheyuan":"./images/2.jpg",
+                "tiantan":"./images/3.jpg",
+                "guojiadajuyuan":"./images/4.jpg"
+            }
+            //获取资源图片的总数：
+            var allAmount = Object.keys(this.R).length;
+            //计数器，记录当前已经加载完的图片数量：
+            var count = 0;
+            //遍历R获取每一张图片的路径地址：
+            for(k in this.R){
+                //先备份每一张图片的地址：
+                var src = this.R[k];
+                //创建图片对象:
+                this.R[k] = new Image();
+                //图片地址赋值：
+                this.R[k].src = src;
+                //备份上下文：
+                var self = this;
+                //判断图片是否加载完成，如果加载完成则计数，当所有图片加载完成，则游戏开始：
+                this.R[k].onload = function(){
+                    //计数器加加：
+                    count++;
+                    //先清屏：
+                    self.ctx.clearRect(0,0,600,400);
+                    self.ctx.font = "16px Arial";
+                    //设置资源加载文案：
+                    self.ctx.fillText("图片已经加载："+count+"/"+allAmount,10,50)
+                    //判断图片是否已经加载完毕,如果加载完毕就开始游戏
+                    if(count == allAmount){
+                        self.start();
+                    }
+                }
+            }
+            console.log(this.R);
+            
+        }
+        Game.prototype.start = function(){
+            //备份：
+            var self = this;
+            self.ctx.drawImage(this.R["gugong"],200,200,100,80)
+
+        }
+        new Game();
+    </script>
+</body>
+</html>

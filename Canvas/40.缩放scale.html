@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        
+        function draw(){
+            var canvas = document.getElementById("foo");
+            var ctx = canvas.getContext("2d");
+            //保存状态：
+            ctx.save();
+            //缩放状态；
+            ctx.scale(10,3);
+            //画一个长方形(本来是正方形，因为缩放，变成了长方形)：
+            ctx.fillRect(1,10,10,10);
+            //恢复状态：
+            ctx.restore();
+            //镜像：
+            ctx.scale(-1,1);
+            //写字：
+            ctx.font = "48px serif";
+            ctx.fillText("MDN",-135,120);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="draw();">
+    <canvas id="foo"></canvas>
+    <script>
+        function draw() {
+            var ctx = document.getElementById('foo').getContext('2d');
+            ctx.fillRect(0,0,150,150);
+            ctx.translate(75,75);
+
+            // 画一个裁剪的圆形区域：
+            ctx.beginPath();
+            ctx.arc(0,0,60,0,Math.PI*2,true);
+            ctx.clip();
+
+            // 画渐变到背景
+            var lingrad = ctx.createLinearGradient(0,-75,0,75);//自上到下到渐变
+            lingrad.addColorStop(0, '#232256');
+            lingrad.addColorStop(1, '#143778');
+
+            ctx.fillStyle = lingrad;
+            ctx.fillRect(-75,-75,150,150);
+
+            // draw stars
+            for (var j=1;j<50;j++){
+                ctx.save();
+                ctx.fillStyle = '#fff';
+                //平移，产生x:-75～75,y:-75~75
+                ctx.translate(75-Math.floor(Math.random()*150),
+                            75-Math.floor(Math.random()*150));
+                drawStar(ctx,Math.floor(Math.random()*4)+2);//产生随机半径：r:2-6
+                ctx.restore();
+            }
+
+            }
+            function drawStar(ctx,r){
+            ctx.save();
+            ctx.beginPath()
+            ctx.moveTo(r,0);
+            //画一颗星星：10条边：
+            for (var i=0;i<9;i++){
+                ctx.rotate(Math.PI/5);
+                if(i%2 == 0) {
+                ctx.lineTo((r/0.525731)*0.200811,0);
+                } else {
+                ctx.lineTo(r,0);
+                }
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+    </script>
+</body>
+</html>

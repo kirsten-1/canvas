@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px dashed #333;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="foo" width="300" height="300"></canvas>
+    <script>
+        var canvas = document.getElementById("foo");
+        var ctx = canvas.getContext("2d");
+        //改变交叉图形的显示方式：
+        ctx.globalCompositeOperation = "source-over";
+        //绘制一个正方形：
+        ctx.fillStyle = "skyblue";
+        ctx.fillRect(50,50,100,100);
+        //画一个圆：
+        ctx.beginPath();
+        ctx.arc(150,150,60,0,Math.PI * 2,true);
+        ctx.closePath();
+        ctx.fillStyle = "deeppink";
+        ctx.fill();
+    </script>
+</body>
+</html>
